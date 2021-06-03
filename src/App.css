@@ -1,4 +1,29 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputContainer input {
+  width: 20em;
+  height: 3em;
+  font-size: 1.2em;
+  padding-left: .8em;
+  margin: .3em;
+}
+
+.inputContainer button {
+  width: 20em;
+  height: 3em;
+  margin-top: 1em;
+}
+
+.inputContainer button:hover {
+  cursor: pointer;
 }
 
