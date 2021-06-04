@@ -1,12 +1,34 @@
-# Getting Started with Create React App
+# Simple CRUD Application
+
+This is an application that I made so I could get more used to back-end development and MySQL. It is built with CRUD (Create, Read, Update, Delete) principles.
+
+## Table of contents
+
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [How to run](#how-to-run)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
+
+## Overview
+
+### The challenge
+
+The app consists in an clientside and serverside version. This repository shows the clientside. For more information about the serverside, you can find it here, on my github.
+For this clientside, I used ReactJS, NodeJS, Styled Components, MySQL, Axios and Express. In the index, the user can find some inputs and fill them. When the 'Add employee' 
+button is clicked, the information typed on the input fields are storaged on a MySQL table, and the user can see it by clicking in the 'Show employees' button.
+
+### How to run
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
 In the project directory, you can run:
 
-### `yarn start`
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,57 +36,61 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### Screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Screenshot](https://i.ibb.co/KW32sQg/crud.jpg)
 
-### `yarn build`
+## My process
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React](https://reactjs.org/) - JavaSript library
+- [Node](https://nodejs.org/en/) - NodeJS
+- [Express](https://expressjs.com/pt-br/) - Express
+- [Axios](https://www.npmjs.com/package/axios) - Axios
+- [Styled-components](https://styled-components.com/) - Styled Components
+- [MySQL](https://www.mysql.com/) - MySQL
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### What I learned
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This was my first experience with Axios, MySQL database and a backend built by myself.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```Proud of this snippet:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   const addEmployee = () => {
+    Axios.post('http://localhost:3001/create', {
+      name: name, 
+      age: age, 
+      country: country, 
+      position: position, 
+      wage: wage
+    }).then(() => {
+      setEmployeeList([...employeeList, 
+        {
+        name: name, 
+        age: age, 
+        country: country, 
+        position: position, 
+        wage: wage
+      },
+      ]);
+    })
+  }
 
-## Learn More
+  const getEmployees = () => {
+    Axios.get('http://localhost:3001/employees').then((response) => {
+      setEmployeeList(response.data);
+    })
+  }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Continued development
 
-### Code Splitting
+I hope to keep going building my own backend and using databases more often.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Author
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [LinkedIn](https://www.linkedin.com/in/emanuelmsantos)
