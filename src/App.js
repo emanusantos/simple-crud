@@ -1,6 +1,6 @@
-import './App.css';
 import { useState } from 'react';
 import Axios from 'axios';
+import { GlobalStyles, Container, Info, Input, Button } from './Components.js';
 
 function App() {
 
@@ -39,21 +39,17 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="inputContainer">
-        <label htmlFor="">Name:</label>
-        <input type="text" onChange={(event) => {setName(event.target.value)}} />
-        <label htmlFor="">Age:</label>
-        <input type="text" onChange={(event) => {setAge(event.target.value)}} />
-        <label htmlFor="">Country:</label>
-        <input type="text" onChange={(event) => {setCountry(event.target.value)}} />
-        <label htmlFor="">Position:</label>
-        <input type="text" onChange={(event) => {setPosition(event.target.value)}} />
-        <label htmlFor="">Wage (year):</label>
-        <input type="text" onChange={(event) => {setWage(event.target.value)}} />
-        <button onClick={addEmployee}>Add employee!</button>
-      </div>
-      <button onClick={getEmployees}>Show employees</button>
+    <Container>
+      <GlobalStyles />
+      <Info>
+        <Input type="text" placeholder="Name" onChange={(event) => {setName(event.target.value)}} />
+        <Input type="number" placeholder="Age" onChange={(event) => {setAge(event.target.value)}} />
+        <Input type="text" placeholder="Country" onChange={(event) => {setCountry(event.target.value)}} />
+        <Input type="text" placeholder="Your position" onChange={(event) => {setPosition(event.target.value)}} />
+        <Input type="text" placeholder="Your wage" onChange={(event) => {setWage(event.target.value)}} />
+        <Button onClick={addEmployee}>Add employee!</Button>
+      </Info>
+      <Button onClick={getEmployees}>Show employees</Button>
 
       {employeeList.map((val, key) => {
         return (
@@ -65,7 +61,7 @@ function App() {
           <p>{val.wage}</p>
         </div>)
       })}
-    </div>
+    </Container>
   );
 }
 
