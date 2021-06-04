@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Axios from 'axios';
-import { GlobalStyles, Container, Info, Input, Button } from './Components.js';
+import { GlobalStyles, Container, Info, Input, Button, Line, Card, CardContainer, Title, Text } from './Components.js';
 
 function App() {
 
@@ -49,18 +49,21 @@ function App() {
         <Input type="text" placeholder="Your wage" onChange={(event) => {setWage(event.target.value)}} />
         <Button onClick={addEmployee}>Add employee!</Button>
       </Info>
+      <Line />
       <Button onClick={getEmployees}>Show employees</Button>
 
+    <CardContainer>
       {employeeList.map((val, key) => {
         return (
-        <div>
-          <h3>{val.name}</h3>
-          <p>{val.age}</p>
-          <p>{val.country}</p>
-          <p>{val.position}</p>
-          <p>{val.wage}</p>
-        </div>)
+        <Card>
+          <Title>{val.name}</Title>
+          <Text>Age: {val.age}</Text>
+          <Text>Country: {val.country}</Text>
+          <Text>Position: {val.position}</Text>
+          <Text>Wage: {val.wage}</Text>
+        </Card>)
       })}
+    </CardContainer>
     </Container>
   );
 }
